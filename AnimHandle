@@ -1,4 +1,4 @@
-local pathToGithub = "https://raw.githubusercontent.com/xhayper/Animator/main/Source/"
+local pathToGithub = "https://github.com/NetlessScripter/AnimHandler/tree/main"
 
 local sub = string.sub
 
