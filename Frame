@@ -1,0 +1,25 @@
+return function(Animation, CurrentDelta)
+    local LastFrame = Animation[#Animation]
+    local LastIndex = #Animation
+    local Start, End = Animation[1], LastFrame
+
+    for i, v in ipairs(Animation) do
+        local Time = v.Time
+        if CurrentDelta == Time or i == LastIndex then
+            Start, End = v, v
+            break
+        end
+        if CurrentDelta > Time then
+            if i + 1 == LastIndex + 1 then
+                Start, End = v, v
+                break
+            end
+            if Animation[i + 1].Time > CurrentDelta then
+                Start, End = v, Animation[i + 1]
+                break
+            end
+        end
+    end
+
+    return Start, End
+end
