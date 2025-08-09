@@ -1,16 +1,16 @@
-
+--@Yarik_superpro
 local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local table_create = table.create
 local cframe_zero = CFrame.new(0, 0, 0)
 
-local PriorityTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/refs/heads/main/Prio"))()
-local ConvertToTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/refs/heads/main/Table"))()
-local AutoGetMotor6D = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/refs/heads/main/Motor"))()
-local GetFrameInBetween = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/refs/heads/main/Frame"))()
-local GroupTamplate = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/refs/heads/main/Module"))()
-local ReturnableTypes = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/refs/heads/main/Final"))()
+local PriorityTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/main/Prio"))()
+local ConvertToTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/main/Table"))()
+local AutoGetMotor6D = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/main/Motor"))()
+local GetFrameInBetween = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/main/Frame"))()
+local GroupTamplate = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/main/Module"))()
+local ReturnableTypes = loadstring(game:HttpGet("https://raw.githubusercontent.com/NetlessScripter/AnimHandler/main/Final"))()
 
 type AnimType = ReturnableTypes.AnimationSequance
 type SettingsType = ReturnableTypes.Setting
