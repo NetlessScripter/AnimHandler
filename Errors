@@ -1,0 +1,1144 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local v1101 = {}
+v1101.CFrame = hrp.CFrame
+v1101.Countered = nil
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local l_PrimaryPart_94 = character:WaitForChild("HumanoidRootPart")
+
+local function getParent(p)
+    if p then
+        return p
+    end
+    return workspace
+end
+
+shared.loop = function(callback)
+    return game:GetService("RunService").Heartbeat:Connect(callback)
+end
+
+shared.sfx = function(props)
+    local s = Instance.new("Sound")
+    for k, v in pairs(props) do
+        if k == "SoundId" and type(v) == "table" then
+            s.SoundId = v[math.random(1, #v)]
+        elseif k ~= "Parent" and s[k] ~= nil then
+            s[k] = v
+        end
+    end
+    s.Parent = getParent(props.Parent)
+    s.Ended:Connect(function()
+        if s.Parent then
+            s:Destroy()
+        end
+    end)
+    return s
+end
+v19754 = game:service("TweenService")
+l_TweenService_48 = v19754
+local l_LocalPlayer_0 = game.Players.LocalPlayer
+
+local v1101 = {}
+v1101.char = l_LocalPlayer_0.Character or l_LocalPlayer_0.CharacterAdded:Wait()
+v1101.Hit = v1101.char
+
+local l_char_58 = v1101.char;
+            local l_PrimaryPart_94 = l_char_58.PrimaryPart;
+            local l_hit_33 = v1101.hit;
+            local l_SplitCounter_0 = game.ReplicatedStorage.Resources.SplitCounter;
+            local l_FirstChild_32 = l_char_58:FindFirstChild("#KATANAWEAPON"):FindFirstChild("Cube.001");
+            local v19680 = nil;
+            for _, v19682 in pairs(l_char_58.Humanoid:GetPlayingAnimationTracks()) do
+                if v19682.Animation.AnimationId == "rbxassetid://15487418517" then
+                    v19680 = v19682;
+                end;
+            end;
+            shared.sfx({
+                SoundId = "rbxassetid://15319781329", 
+                Parent = l_PrimaryPart_94, 
+                Volume = 2
+            }):Play();
+            local l_l_SplitCounter_0_0 = l_SplitCounter_0 --[[ copy: 7 -> 987 ]];
+            do
+                local l_v19680_0 = v19680;
+                local function v19698(v19685, v19686, v19687, v19688) --[[ Line: 35152 ]] --[[ Name: Slash ]]
+                    -- upvalues: l_v19680_0 (ref), l_l_SplitCounter_0_0 (copy), v1025 (ref), v103 (ref), v966 (ref)
+                    if l_v19680_0.IsPlaying then
+                        local v19689 = l_l_SplitCounter_0_0.SlashMesh:Clone();
+                        local v19690 = l_l_SplitCounter_0_0.SlashWind:Clone();
+                        game.Debris:AddItem(v19689, 0.3);
+                        game.Debris:AddItem(v19690, 0.3);
+                        v19689.CFrame = v19686;
+                        v19690.CFrame = v19686 * CFrame.Angles(math.rad((math.random(-360, 360))), math.rad((math.random(-360, 360))), (math.rad((math.random(-360, 360)))));
+                        local l_Mesh_18 = v19689.Mesh;
+                        l_Mesh_18.Scale = Vector3.new(0.10000000149011612, 1, 0.10000000149011612, 0) * v19685;
+                        if v19687 then
+                            local v19692 = l_l_SplitCounter_0_0.Bruh:Clone();
+                            game.Debris:AddItem(v19692, 1);
+                            v19692:SetPrimaryPartCFrame(v19686);
+                            v19692.Parent = workspace.Thrown;
+                            v19692:ScaleTo(v19685 * 0.8);
+                            v1025(v19692);
+                            local v19693 = l_l_SplitCounter_0_0.Bruh2:Clone();
+                            game.Debris:AddItem(v19693, 1);
+                            v19693:SetPrimaryPartCFrame(v19686);
+                            v19693.Parent = workspace.Thrown;
+                            v19693:ScaleTo(v19685 * 0.8);
+                            v1025(v19693);
+                        end;
+                        v19690.Parent = workspace.Thrown;
+                        v19689.Parent = workspace.Thrown;
+                        if v19688 then
+                            v19689.Size = v19689.Size + Vector3.new(0, v19688, 0);
+                        end;
+                        local v19694 = 0.03;
+                        local v19695 = 0.08;
+                        local l_v103_223 = v103;
+                        if not v19695 and v19694 then
+                            v19695 = v19694;
+                            v19694 = 1;
+                        end;
+                        if not v19695 and not v19694 then
+                            v19694 = 0;
+                            v19695 = 1;
+                        end;
+                        local v19697 = l_v103_223:NextNumber(v19694, v19695);
+                        v966(l_Mesh_18, {
+                            EasingStyle = "StandardProductive", 
+                            EasingDirection = "Out", 
+                            Time = v19697, 
+                            Goal = {
+                                Scale = Vector3.new(0, 7, 0, 0) * v19685
+                            }
+                        });
+                        v966(v19690, {
+                            EasingStyle = "StandardProductive", 
+                            EasingDirection = "Out", 
+                            Time = v19697 * 3, 
+                            Goal = {
+                                Size = v19690.Size + Vector3.new(15, 4, 15, 0) * v19685, 
+                                Transparency = 1
+                            }
+                        });
+                        task.wait(Random.new():NextNumber(0.01, 0.03));
+                    end;
+                end;
+                local l_l_char_58_0 = l_char_58 --[[ copy: 4 -> 988 ]];
+                local l_l_PrimaryPart_94_0 = l_PrimaryPart_94 --[[ copy: 5 -> 989 ]];
+                local function v19709() --[[ Line: 35194 ]] --[[ Name: TP ]]
+                    -- upvalues: l_l_char_58_0 (copy), l_l_SplitCounter_0_0 (copy), l_l_PrimaryPart_94_0 (copy), v1025 (ref)
+                    for v19701 = 1, 3 do
+                        local v19702 = {};
+                        for _, v19704 in pairs(l_l_char_58_0:GetDescendants()) do
+                            if v19704:IsA("BasePart") or v19704:IsA("Decal") then
+                                v19702[v19704] = v19704.Transparency;
+                                v19704.Transparency = 1;
+                            end;
+                        end;
+                        if v19701 < 3 then
+                            task.wait(0.05);
+                        else
+                            task.wait(0.05);
+                        end;
+                        for _, v19706 in pairs(l_l_char_58_0:GetDescendants()) do
+                            if v19706:IsA("BasePart") or v19706:IsA("Decal") then
+                                v19706.Transparency = v19702[v19706];
+                            end;
+                        end;
+                        task.wait(0.05);
+                        if v19701 == 1 then
+                            local v19707 = l_l_SplitCounter_0_0.TPNEW:Clone();
+                            game:GetService("Debris"):AddItem(v19707, 5);
+                            v19707:SetPrimaryPartCFrame(l_l_char_58_0.Torso.CFrame * CFrame.new(0, -l_l_PrimaryPart_94_0.Size.Y * 1.5, 0));
+                            v19707.Parent = workspace.Thrown;
+                            v1025(v19707);
+                        end;
+                        if v19701 == 3 then
+                            local v19708 = l_l_SplitCounter_0_0.TPNEW:Clone();
+                            game:GetService("Debris"):AddItem(v19708, 5);
+                            v19708:SetPrimaryPartCFrame(l_l_char_58_0.Torso.CFrame * CFrame.new(0, -l_l_PrimaryPart_94_0.Size.Y * 1.5, 0));
+                            v19708.Parent = workspace.Thrown;
+                            v1025(v19708);
+                            delay(0.05, function() --[[ Line: 35229 ]]
+                                -- upvalues: v1025 (ref), v19708 (copy)
+                                v1025(v19708);
+                            end);
+                        end;
+                    end;
+                end;
+              local v19710 = l_SplitCounter_0.Smoke:Clone()
+game:GetService("Debris"):AddItem(v19710, 10)
+
+local player = game.Players.LocalPlayer
+local hrp = player.Character.HumanoidRootPart
+
+v19710.PrimaryPart = v19710:FindFirstChild("HumanoidRootPart") or v19710:FindFirstChildWhichIsA("BasePart")
+
+v19710:SetPrimaryPartCFrame(hrp.CFrame + CFrame.new(hrp.Position * Vector3.new(1, 0, 1), l_PrimaryPart_94.Position * Vector3.new(1, 0, 1)).LookVector * 12)
+v19710:SetPrimaryPartCFrame(CFrame.new(v19710.PrimaryPart.Position, Vector3.new(hrp.Position.X, v19710.PrimaryPart.Position.Y, hrp.Position.Z)))
+
+v19710.Parent = workspace.Thrown
+
+
+
+                for _, v19712 in pairs({
+                    l_hit_33
+                }) do
+                    local l_Magnitude_1 = (v19712.HumanoidRootPart.Position - l_PrimaryPart_94.Position).Magnitude;
+                    local v19714 = l_SplitCounter_0.CounterLand.Part.Attachment:Clone();
+                    game:GetService("Debris"):AddItem(v19714, 5);
+                    v19714.Parent = v19712.HumanoidRootPart;
+                    v1025(v19714);
+                    local l_v19698_0 = v19698;
+                    local v19716 = 2;
+                    local v19717 = 3;
+                    local l_v103_224 = v103;
+                    if not v19717 and v19716 then
+                        v19717 = v19716;
+                        v19716 = 1;
+                    end;
+                    if not v19717 and not v19716 then
+                        v19716 = 0;
+                        v19717 = 1;
+                    end;
+                    l_v19698_0(l_v103_224:NextNumber(v19716, v19717), CFrame.new(l_PrimaryPart_94.Position, v19712.HumanoidRootPart.Position), true, l_Magnitude_1);
+                    delay(0.1, function() --[[ Line: 35248 ]]
+                        -- upvalues: v19698 (copy), v103 (ref), l_PrimaryPart_94 (copy), v19712 (copy)
+                        local l_v19698_1 = v19698;
+                        local v19720 = 3;
+                        local v19721 = 4;
+                        local l_v103_225 = v103;
+                        if not v19721 and v19720 then
+                            v19721 = v19720;
+                            v19720 = 1;
+                        end;
+                        if not v19721 and not v19720 then
+                            v19720 = 0;
+                            v19721 = 1;
+                        end;
+                        l_v19698_1(l_v103_225:NextNumber(v19720, v19721), CFrame.new(l_PrimaryPart_94.Position, v19712.HumanoidRootPart.Position) * CFrame.Angles(1.5707963267948966, 0, 0), true);
+                    end);
+                    delay(1.883, function() --[[ Line: 35252 ]]
+                        -- upvalues: l_v19680_0 (ref)
+                        if l_v19680_0.IsPlaying then
+
+                        end;
+                    end);
+                end;
+                spawn(v19709);
+                v966(l_PrimaryPart_94, {
+                    Time = 0.1, 
+                    EasingStyle = "Linear", 
+                    Goal = {
+                        CFrame = v1101.CFrame
+                    }
+                });
+                task.wait(0.4);
+                local l_l_FirstChild_32_0 = l_FirstChild_32 --[[ copy: 8 -> 990 ]];
+                local l_l_hit_33_0 = l_hit_33 --[[ copy: 6 -> 991 ]];
+                local l_l_char_58_1 = l_char_58 --[[ copy: 4 -> 992 ]];
+                task.delay(0.1, function() --[[ Line: 35276 ]]
+                    -- upvalues: l_l_FirstChild_32_0 (copy), v1101 (copy), v1025 (ref), l_LocalPlayer_0 (ref), l_l_hit_33_0 (copy), l_l_char_58_1 (copy), v309 (ref), v103 (ref), v12 (ref)
+                    local l_SplitSecond_0 = game.ReplicatedStorage.Resources.SplitSecond;
+                    local v19727 = l_SplitSecond_0.SwordWeld:Clone();
+                    game:GetService("Debris"):AddItem(v19727, 5);
+                    local l_Weld_60 = Instance.new("Weld");
+                    l_Weld_60.Part0 = v19727;
+                    l_Weld_60.Part1 = l_l_FirstChild_32_0;
+                    l_Weld_60.C0 = CFrame.Angles(0, 0, 1.5707963267948966);
+                    l_Weld_60.Parent = v19727;
+                    v19727.Parent = workspace.Thrown;
+                    local v19729 = l_SplitSecond_0.Ray2:Clone();
+                    game:GetService("Debris"):AddItem(v19729, 5);
+                    local l_Weld_61 = Instance.new("Weld");
+                    l_Weld_61.Part0 = v19729;
+                    l_Weld_61.Part1 = l_l_FirstChild_32_0;
+                    l_Weld_61.C0 = CFrame.Angles(0, 0, 1.5707963267948966);
+                    l_Weld_61.Parent = v19729;
+                    v19729.Parent = workspace.Thrown;
+                    local v19731 = l_SplitSecond_0.Rayey:Clone();
+                    game:GetService("Debris"):AddItem(v19731, 5);
+                    local l_Weld_62 = Instance.new("Weld");
+                    l_Weld_62.Part0 = v19731;
+                    l_Weld_62.Part1 = l_l_FirstChild_32_0;
+                    l_Weld_62.C0 = CFrame.Angles(0, 0, 1.5707963267948966);
+                    l_Weld_62.Parent = v19731;
+                    v19731.Parent = workspace.Thrown;
+                    delay(2.1, function() --[[ Line: 35302 ]]
+                        -- upvalues: v1101 (ref), l_SplitSecond_0 (copy), l_l_FirstChild_32_0 (ref), v1025 (ref), l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), v309 (ref), v103 (ref), v12 (ref)
+                        if v1101.Countered then
+                           
+                        else
+                            local v19733 = l_SplitSecond_0.Final:Clone();
+                            game:GetService("Debris"):AddItem(v19733, 5);
+                            local l_CFrame_47 = l_l_FirstChild_32_0.CFrame;
+                            v19733:SetPrimaryPartCFrame(l_l_FirstChild_32_0.CFrame);
+                            v19733.Parent = workspace.Thrown;
+                            v1025(v19733);
+                            local l_Position_41 = workspace.CurrentCamera.CFrame.Position;
+                            if l_LocalPlayer_0.Character and l_LocalPlayer_0.Character.PrimaryPart then
+                                l_Position_41 = l_LocalPlayer_0.Character.PrimaryPart.Position;
+                            end;
+                            local v19736 = (l_l_hit_33_0.PrimaryPart.Position - l_Position_41).magnitude > 40;
+                            if l_l_hit_33_0 == l_LocalPlayer_0.Character or l_l_char_58_1 == l_LocalPlayer_0.Character then
+                                v19736 = nil;
+                            end;
+                            local l_v19736_0 = v19736;
+                            if not v19736 then
+                                shared.sfx({
+                                    SoundId = "rbxassetid://15489559064", 
+                                    CFrame = l_l_hit_33_0.PrimaryPart.CFrame, 
+                                    Volume = 6
+                                }):Play();
+                            end;
+                            task.delay(0.1, function() --[[ Line: 35335 ]]
+                                -- upvalues: l_l_FirstChild_32_0 (ref)
+                                shared.sfx({
+                                    SoundId = "rbxassetid://15473802381", 
+                                    Parent = l_l_FirstChild_32_0, 
+                                    Volume = 10
+                                }):Play();
+                            end);
+                            local v19738 = {};
+                            task.delay(8, function() --[[ Line: 35345 ]]
+                                -- upvalues: v19738 (copy)
+                                for _, v19740 in pairs(v19738) do
+                                    if typeof(v19740) == "Instance" then
+                                        v19740:Destroy();
+                                    else
+                                        v19740:Disconnect();
+                                    end;
+                                end;
+                            end);
+                            local l_TweenService_48 = game:GetService("TweenService");
+                            local l_NumberValue_15 = Instance.new("NumberValue");
+                            l_NumberValue_15.Value = 1;
+                            table.insert(v19738, l_NumberValue_15);
+                            local v19743 = false;
+                            local l_Part_10 = Instance.new("Part");
+                            table.insert(v19738, l_Part_10);
+                            l_Part_10.Parent = workspace.Camera;
+                            l_Part_10.Anchored = true;
+                            l_Part_10.CanCollide = false;
+                            l_Part_10.Color = Color3.new(2, 2, 2);
+                            l_Part_10.Material = Enum.Material.SmoothPlastic;
+                            l_Part_10.Shape = Enum.PartType.Cylinder;
+                            l_Part_10.Size = Vector3.new(0, 0, 0, 0);
+                            local l_ColorCorrectionEffect_2 = Instance.new("ColorCorrectionEffect");
+                            table.insert(v19738, l_ColorCorrectionEffect_2);
+                            l_ColorCorrectionEffect_2.Parent = game.Lighting;
+                            local l_SurfaceGui_1 = Instance.new("SurfaceGui");
+                            table.insert(v19738, l_SurfaceGui_1);
+                            l_SurfaceGui_1.LightInfluence = 0;
+                            l_SurfaceGui_1.Brightness = 125;
+                            l_SurfaceGui_1.Face = Enum.NormalId.Right;
+                            local l_ImageLabel_5 = Instance.new("ImageLabel");
+                            table.insert(v19738, l_ImageLabel_5);
+                            l_ImageLabel_5.Size = UDim2.new(1, 0, 1, 1);
+                            l_ImageLabel_5.ImageColor3 = Color3.new(1, 1, 1);
+                            l_ImageLabel_5.BackgroundTransparency = 1;
+                            l_ImageLabel_5.Image = "rbxassetid://9208578430";
+                            l_ImageLabel_5.Parent = l_SurfaceGui_1;
+                            l_SurfaceGui_1.Parent = l_Part_10;
+                            local v19748 = nil;
+                            local v19749 = nil;
+                            local v19750 = nil;
+                            local l_Model_443 = Instance.new("Model");
+                            table.insert(v19738, l_Model_443);
+                            l_Model_443.Parent = workspace.Thrown;
+                            l_Model_443.Name = "Slashes";
+                            local l_Part_11 = Instance.new("Part");
+                            table.insert(v19738, l_Part_11);
+                            l_Part_11.Anchored = true;
+                            l_Part_11.CanCollide = false;
+                            l_Part_11.Transparency = 1;
+                            l_Part_11.Parent = l_Model_443;
+                            l_Model_443.PrimaryPart = l_Part_11;
+                            l_Part_11.CFrame = l_l_hit_33_0.PrimaryPart.CFrame;
+                            l_Part_11 = function() --[[ Line: 35406 ]]
+                                -- upvalues: v309 (ref), v19738 (copy), v103 (ref), l_l_hit_33_0 (ref), l_Model_443 (copy), l_TweenService_48 (copy)
+                                local v19753 = v309() or Instance.new("Part");
+                                table.insert(v19738, v19753);
+                                local v19754 = 7;
+                                local v19755 = 45;
+                                local l_v103_226 = v103;
+                                if not v19755 and v19754 then
+                                    v19755 = v19754;
+                                    v19754 = 1;
+                                end;
+                                if not v19755 and not v19754 then
+                                    v19754 = 0;
+                                    v19755 = 1;
+                                end;
+                                local v19757 = l_v103_226:NextNumber(v19754, v19755) * 18;
+                                v19753.Anchored = true;
+                                v19753.CanCollide = false;
+                                v19753.CanTouch = false;
+                                v19753.CanQuery = false;
+                                v19753.Size = Vector3.new(0.75, 0.75, 0, 0);
+                                v19753.Position = l_l_hit_33_0.PrimaryPart.Position;
+                                local l_CFrame_48 = v19753.CFrame;
+                                v19754 = CFrame.Angles;
+                                local v19759 = -360;
+                                local v19760 = 360;
+                                local l_v103_227 = v103;
+                                if not v19760 and v19759 then
+                                    v19760 = v19759;
+                                    v19759 = 1;
+                                end;
+                                if not v19760 and not v19759 then
+                                    v19759 = 0;
+                                    v19760 = 1;
+                                end;
+                                v19755 = math.rad((l_v103_227:NextNumber(v19759, v19760)));
+                                v19760 = -360;
+                                l_v103_227 = 360;
+                                local l_v103_228 = v103;
+                                if not l_v103_227 and v19760 then
+                                    l_v103_227 = v19760;
+                                    v19760 = 1;
+                                end;
+                                if not l_v103_227 and not v19760 then
+                                    v19760 = 0;
+                                    l_v103_227 = 1;
+                                end;
+                                l_v103_226 = math.rad((l_v103_228:NextNumber(v19760, l_v103_227)));
+                                l_v103_227 = -360;
+                                l_v103_228 = 360;
+                                local l_v103_229 = v103;
+                                if not l_v103_228 and l_v103_227 then
+                                    l_v103_228 = l_v103_227;
+                                    l_v103_227 = 1;
+                                end;
+                                if not l_v103_228 and not l_v103_227 then
+                                    l_v103_227 = 0;
+                                    l_v103_228 = 1;
+                                end;
+                                v19753.CFrame = l_CFrame_48 * v19754(v19755, l_v103_226, (math.rad((l_v103_229:NextNumber(l_v103_227, l_v103_228)))));
+                                l_CFrame_48 = v19753.CFrame;
+                                v19754 = CFrame.new;
+                                l_v103_226 = -76;
+                                v19759 = 76;
+                                v19760 = v103;
+                                if not v19759 and l_v103_226 then
+                                    v19759 = l_v103_226;
+                                    l_v103_226 = 1;
+                                end;
+                                if not v19759 and not l_v103_226 then
+                                    l_v103_226 = 0;
+                                    v19759 = 1;
+                                end;
+                                v19755 = v19760:NextNumber(l_v103_226, v19759);
+                                v19759 = -76;
+                                v19760 = 76;
+                                l_v103_227 = v103;
+                                if not v19760 and v19759 then
+                                    v19760 = v19759;
+                                    v19759 = 1;
+                                end;
+                                if not v19760 and not v19759 then
+                                    v19759 = 0;
+                                    v19760 = 1;
+                                end;
+                                v19753.CFrame = l_CFrame_48 * v19754(v19755, l_v103_227:NextNumber(v19759, v19760), -v19757);
+                                l_CFrame_48 = math.random(1, 3) ~= 1;
+                                l_CFrame_48 = true;
+                                if l_CFrame_48 then
+                                    v19753.Size = v19753.Size * Vector3.new(5, 5, 1, 0);
+                                end;
+                                v19753.Parent = l_Model_443;
+                                v19754 = l_TweenService_48;
+                                l_v103_226 = v19753;
+                                v19759 = TweenInfo.new;
+                                l_v103_227 = 0.1;
+                                l_v103_228 = 0.175;
+                                l_v103_229 = v103;
+                                if not l_v103_228 and l_v103_227 then
+                                    l_v103_228 = l_v103_227;
+                                    l_v103_227 = 1;
+                                end;
+                                if not l_v103_228 and not l_v103_227 then
+                                    l_v103_227 = 0;
+                                    l_v103_228 = 1;
+                                end;
+                                v19754:Create(l_v103_226, v19759(l_v103_229:NextNumber(l_v103_227, l_v103_228), Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                    Size = Vector3.new(l_CFrame_48 and 0 or v19753.Size.X, l_CFrame_48 and 0 or v19753.Size.Y, v19757), 
+                                    CFrame = v19753.CFrame * CFrame.new(0, 0, v19757)
+                                }):Play();
+                                task.delay(0.175, function() --[[ Line: 35430 ]]
+                                    -- upvalues: v19753 (copy)
+                                    v19753:Destroy();
+                                end);
+                            end;
+                            local v19764 = false;
+                            task.delay(0.32, function() --[[ Line: 35436 ]]
+                                -- upvalues: l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), v19748 (ref), v19738 (copy), v19749 (ref), l_Model_443 (copy), v19750 (ref), v19743 (ref), l_TweenService_48 (copy), l_Part_10 (copy), v19764 (ref), l_Part_11 (copy), v12 (ref)
+                                local l_Position_42 = workspace.CurrentCamera.CFrame.Position;
+                                if l_LocalPlayer_0.Character and l_LocalPlayer_0.Character.PrimaryPart then
+                                    l_Position_42 = l_LocalPlayer_0.Character.PrimaryPart.Position;
+                                end;
+                                local v19766 = (l_l_hit_33_0.PrimaryPart.Position - l_Position_42).magnitude > 40;
+                                if l_l_hit_33_0 == l_LocalPlayer_0.Character or l_l_char_58_1 == l_LocalPlayer_0.Character then
+                                    v19766 = nil;
+                                end;
+                                task.delay(0.03, function() --[[ Line: 35447 ]]
+                                    -- upvalues: v19766 (ref), v19748 (ref), v19738 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), v19749 (ref), l_Model_443 (ref), v19750 (ref)
+                                    if v19766 then
+                                        return;
+                                    else
+                                        v19748 = Instance.new("Highlight");
+                                        table.insert(v19738, v19748);
+                                        v19748.OutlineTransparency = 1;
+                                        v19748.FillTransparency = 0;
+                                        v19748.FillColor = Color3.new(0, 0, 0);
+                                        v19748.Parent = l_l_hit_33_0;
+                                        local l_Highlight_11 = Instance.new("Highlight");
+                                        table.insert(v19738, l_Highlight_11);
+                                        l_Highlight_11.OutlineTransparency = 1;
+                                        l_Highlight_11.FillTransparency = 0;
+                                        l_Highlight_11.FillColor = Color3.new(0, 0, 0);
+                                        l_Highlight_11.Parent = l_l_char_58_1;
+                                        v19749 = l_Highlight_11;
+                                        local l_Highlight_12 = Instance.new("Highlight");
+                                        table.insert(v19738, l_Highlight_12);
+                                        l_Highlight_12.OutlineTransparency = 1;
+                                        l_Highlight_12.FillTransparency = 0;
+                                        l_Highlight_12.FillColor = Color3.new(0, 0, 0);
+                                        l_Highlight_12.Parent = l_Model_443;
+                                        v19750 = l_Highlight_12;
+                                        return;
+                                    end;
+                                end);
+                                v19743 = true;
+                                l_TweenService_48:Create(l_Part_10, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                    Size = Vector3.new(v19766 and 0 or 0.1, v19766 and 0 or 0.5, v19766 and 0 or 0.5)
+                                }):Play();
+                                task.delay(0.025, function() --[[ Line: 35478 ]]
+                                    -- upvalues: v19764 (ref), v19766 (ref), l_l_char_58_1 (ref), l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), l_Part_11 (ref), v12 (ref)
+                                    local v19769 = tick();
+                                    local v19770 = 0;
+                                    local v19771 = 0;
+                                    local v19772 = nil;
+                                    v19772 = shared.loop(function() --[[ Line: 35483 ]]
+                                        -- upvalues: v19764 (ref), v19769 (copy), v19772 (ref), v19766 (ref), l_l_char_58_1 (ref), l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), v19770 (ref), l_Part_11 (ref), v19771 (ref), v12 (ref)
+                                        if v19764 or tick() - v19769 > 1 then
+                                            v19772();
+                                        end;
+                                        if (not v19766 or l_l_char_58_1 == l_LocalPlayer_0.Character or l_l_hit_33_0 == l_LocalPlayer_0.Character) and tick() - v19770 > 0.01 then
+                                            v19770 = tick();
+                                            l_Part_11();
+                                            l_Part_11();
+                                            l_Part_11();
+                                            l_Part_11();
+                                            l_Part_11();
+                                            l_Part_11();
+                                            l_Part_11();
+                                            l_Part_11();
+                                        end;
+                                        v19771 = v19771 + 1;
+                                        if (l_l_hit_33_0 == l_l_char_58_1 or l_LocalPlayer_0.Character == l_l_char_58_1) and v19771 % 7 == 0 then
+                                            v12({
+                                                Effect = "Camshake", 
+                                                Intensity = 0.25
+                                            });
+                                        end;
+                                    end, 60);
+                                end);
+                                if l_l_hit_33_0 == l_l_char_58_1 or l_LocalPlayer_0.Character == l_l_char_58_1 then
+                                    v12({
+                                        Effect = "Camshake", 
+                                        Intensity = 6
+                                    });
+                                end;
+                            end);
+                            local v19773 = game.ReplicatedStorage.Resources.Impact:Clone();
+                            table.insert(v19738, v19773);
+                            v19773.Parent = workspace.Cutscenes.Billboard;
+                            v19773.Enabled = true;
+                            v19773.Adornee = l_l_hit_33_0.PrimaryPart;
+                            task.delay(0.85, function() --[[ Line: 35519 ]]
+                                -- upvalues: l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), v19773 (copy), v19764 (ref), l_TweenService_48 (copy)
+                                local l_Position_43 = workspace.CurrentCamera.CFrame.Position;
+                                if l_LocalPlayer_0.Character and l_LocalPlayer_0.Character.PrimaryPart then
+                                    l_Position_43 = l_LocalPlayer_0.Character.PrimaryPart.Position;
+                                end;
+                                local v19775 = (l_l_hit_33_0.PrimaryPart.Position - l_Position_43).magnitude > 40;
+                                if l_LocalPlayer_0.Character == l_l_char_58_1 or l_LocalPlayer_0.Character == l_l_hit_33_0 then
+                                    v19775 = nil;
+                                end;
+                                if v19775 then
+                                    return;
+                                else
+                                    v19773[1].Size = UDim2.new(2, 0, 2, 0);
+                                    task.wait(0.03);
+                                    v19773[1].Size = UDim2.new(0, 0, 0, 0);
+                                    v19773[2].Size = UDim2.new(3, 0, 3, 0);
+                                    v19764 = true;
+                                    task.wait(0.03);
+                                    v19773[2].Size = UDim2.new(0, 0, 0, 0);
+                                    v19773[1].Size = UDim2.new(2.5, 0, 2.5, 0);
+                                    v19773[1].Rotation = 60;
+                                    task.wait(0.03);
+                                    v19773[1].Size = UDim2.new(0, 0, 0, 0);
+                                    v19773[2].Size = UDim2.new(3.5, 0, 3.5, 0);
+                                    v19773[2].Rotation = 50;
+                                    task.wait(0.03);
+                                    v19773[2].Rotation = 100;
+                                    v19773[2].Size = UDim2.new(4.25, 0, 4.25, 0);
+                                    task.wait(0.03);
+                                    v19773[2].Size = UDim2.new(0, 0, 0, 0);
+                                    v19773.Symbol.Size = UDim2.new(5.5, 0, 5.5, 0);
+                                    local v19776 = v19773.Symbol:Clone();
+                                    v19776.ImageTransparency = 0.75;
+                                    v19776.Size = UDim2.new(2, 0, 2, 0);
+                                    v19776.Parent = v19773;
+                                    task.delay(0.1, function() --[[ Line: 35558 ]]
+                                        -- upvalues: l_TweenService_48 (ref), v19773 (ref), v19776 (copy)
+                                        l_TweenService_48:Create(v19773.Symbol, TweenInfo.new(0.19999999999999998, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                            ImageColor3 = Color3.new(0.6, 0, 0)
+                                        }):Play();
+                                        l_TweenService_48:Create(v19776, TweenInfo.new(0.19999999999999998, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                            ImageColor3 = Color3.new(0.6, 0, 0)
+                                        }):Play();
+                                    end);
+                                    l_TweenService_48:Create(v19773.Symbol, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                        Size = UDim2.new(3, 0, 3, 0)
+                                    }):Play();
+                                    l_TweenService_48:Create(v19776, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                        Size = UDim2.new(6, 0, 6, 0)
+                                    }):Play();
+                                    task.delay(0.25, function() --[[ Line: 35574 ]]
+                                        -- upvalues: l_TweenService_48 (ref), v19776 (copy), v19773 (ref)
+                                        l_TweenService_48:Create(v19776, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                            Size = UDim2.new(0, 0, 0, 0)
+                                        }):Play();
+                                        l_TweenService_48:Create(v19773.Symbol, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                            Size = UDim2.new(0, 0, 0, 0)
+                                        }):Play();
+                                        task.wait(0.5);
+                                    end);
+                                    return;
+                                end;
+                            end);
+                            task.delay(1, function() --[[ Line: 35586 ]]
+                                -- upvalues: v19743 (ref), l_TweenService_48 (copy), l_Part_10 (copy), l_NumberValue_15 (copy), v19738 (copy), l_Model_443 (copy), l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), v19748 (ref), l_ImageLabel_5 (copy), v19749 (ref), v19750 (ref), l_SurfaceGui_1 (copy), l_ColorCorrectionEffect_2 (copy), v12 (ref), l_SplitSecond_0 (ref), v1025 (ref), l_v19736_0 (copy), v103 (ref)
+                                v19743 = false;
+                                l_TweenService_48:Create(l_Part_10, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+                                    Size = Vector3.new(0.10000000149011612, 0, 0, 0)
+                                }):Play();
+                                l_TweenService_48:Create(l_NumberValue_15, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                    Value = 0
+                                }):Play();
+                                local l_NumberValue_16 = Instance.new("NumberValue");
+                                table.insert(v19738, l_NumberValue_16);
+                                l_NumberValue_16.Value = 1;
+                                table.insert(v19738, l_NumberValue_16:GetPropertyChangedSignal("Value"):Connect(function() --[[ Line: 35602 ]]
+                                    -- upvalues: l_NumberValue_16 (copy), l_Model_443 (ref)
+                                    if l_NumberValue_16.Value <= 0 then
+                                        return;
+                                    else
+                                        l_Model_443:ScaleTo(l_NumberValue_16.Value);
+                                        return;
+                                    end;
+                                end));
+                                l_TweenService_48:Create(l_NumberValue_16, TweenInfo.new(0.425, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                                    Value = 0
+                                }):Play();
+                                local v19778 = nil;
+                                v19778 = l_Part_10:GetPropertyChangedSignal("Size"):Connect(function() --[[ Line: 35613 ]]
+                                    -- upvalues: l_Part_10 (ref), v19778 (ref), l_LocalPlayer_0 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), l_TweenService_48 (ref), v19748 (ref), l_ImageLabel_5 (ref), v19749 (ref), v19750 (ref), l_SurfaceGui_1 (ref), l_ColorCorrectionEffect_2 (ref), v12 (ref), l_SplitSecond_0 (ref), v19738 (ref), v1025 (ref), l_v19736_0 (ref), v103 (ref)
+                                    if l_Part_10.Size.Y <= 0.4 then
+                                        v19778:Disconnect();
+                                        local v19779 = false;
+                                        local l_Position_44 = workspace.CurrentCamera.CFrame.Position;
+                                        if l_LocalPlayer_0.Character and l_LocalPlayer_0.Character.PrimaryPart then
+                                            l_Position_44 = l_LocalPlayer_0.Character.PrimaryPart.Position;
+                                        end;
+                                        local v19781 = (l_l_hit_33_0.PrimaryPart.Position - l_Position_44).magnitude > 40;
+                                        if l_LocalPlayer_0.Character == l_l_char_58_1 or l_LocalPlayer_0.Character == l_l_hit_33_0 then
+                                            v19781 = nil;
+                                        end;
+                                        if not v19781 then
+                                            game.Lighting.ExposureCompensation = 10;
+                                            v19779 = true;
+                                        end;
+                                        l_TweenService_48:Create(l_Part_10, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+                                            Size = l_Part_10.Size
+                                        }):Play();
+                                        do
+                                            local l_v19779_0, l_v19781_0 = v19779, v19781;
+                                            task.delay(0.045, function() --[[ Line: 35636 ]]
+                                                -- upvalues: l_v19779_0 (ref), l_Part_10 (ref), v19748 (ref), l_ImageLabel_5 (ref), v19749 (ref), v19750 (ref), l_SurfaceGui_1 (ref), l_v19781_0 (ref), l_ColorCorrectionEffect_2 (ref), l_l_hit_33_0 (ref), l_l_char_58_1 (ref), l_LocalPlayer_0 (ref), v12 (ref), l_SplitSecond_0 (ref), v19738 (ref), v1025 (ref), l_TweenService_48 (ref), l_v19736_0 (ref), v103 (ref)
+                                                if l_v19779_0 then
+                                                    game.Lighting.ExposureCompensation = 0;
+                                                end;
+                                                task.wait(0.045);
+                                                for v19784 = 1, 5 do
+                                                    if v19784 % 2 == 0 then
+                                                        l_Part_10.Color = Color3.new(0, 0, 0);
+                                                        if v19748 then
+                                                            v19748.FillColor = Color3.new(1, 1, 1);
+                                                        end;
+                                                    else
+                                                        l_Part_10.Color = Color3.new(1, 1, 1);
+                                                        if v19748 then
+                                                            v19748.FillColor = Color3.new(0, 0, 0);
+                                                        end;
+                                                    end;
+                                                    local l_l_Part_10_0 = l_Part_10;
+                                                    l_l_Part_10_0.Size = l_l_Part_10_0.Size * 0.7;
+                                                    l_Part_10:SetAttribute("RealSize", l_Part_10.Size);
+                                                    task.wait(0.018750000000000003);
+                                                end;
+                                                local l_l_Part_10_1 = l_Part_10;
+                                                l_l_Part_10_1.Size = l_l_Part_10_1.Size * 0.95;
+                                                l_Part_10:SetAttribute("RealSize", l_Part_10.Size);
+                                                l_Part_10.Transparency = 1;
+                                                l_ImageLabel_5.Image = "rbxassetid://298984512";
+                                                l_Part_10.Color = Color3.new(0, 0, 0);
+                                                if v19748 then
+                                                    v19748:Destroy();
+                                                    v19749:Destroy();
+                                                    v19750:Destroy();
+                                                end;
+                                                task.wait(0.045);
+                                                l_SurfaceGui_1.AlwaysOnTop = true;
+                                                if not l_v19781_0 then
+                                                    l_Part_10.Shape = Enum.PartType.Block;
+                                                    l_Part_10.Size = Vector3.new(0.10000000149011612, 0.017500000074505806, 5, 0);
+                                                    l_Part_10:SetAttribute("RealSize", l_Part_10.Size);
+                                                    l_ColorCorrectionEffect_2.Contrast = -2;
+                                                end;
+                                                task.wait(0.045);
+                                                l_SurfaceGui_1.Enabled = false;
+                                                l_l_Part_10_1 = function() --[[ Line: 35680 ]]
+                                                    return CFrame.Angles(0, math.rad((math.random(-360, 360))), 0);
+                                                end;
+                                                if l_l_hit_33_0 == l_l_char_58_1 or l_LocalPlayer_0.Character == l_l_char_58_1 then
+                                                    v12({
+                                                        Effect = "Camshake", 
+                                                        Intensity = 2.5, 
+                                                        Last = 0.5
+                                                    });
+                                                end;
+                                                local v19787 = l_SplitSecond_0.FlowerBlastNew:Clone();
+                                                table.insert(v19738, v19787);
+                                                v19787:SetPrimaryPartCFrame(l_l_hit_33_0.PrimaryPart.CFrame * CFrame.new(0, -l_l_hit_33_0.PrimaryPart.Size.Y * 1.5, 0));
+                                                v19787.Parent = workspace.Thrown;
+                                                v19787:ScaleTo(1);
+                                                v1025(v19787, 4);
+                                                local l_NumberValue_17 = Instance.new("NumberValue");
+                                                local _ = l_NumberValue_17.Changed:Connect(function() --[[ Line: 35698 ]]
+                                                    -- upvalues: v19787 (copy), l_NumberValue_17 (copy)
+                                                    v19787:ScaleTo(l_NumberValue_17.Value);
+                                                end);
+                                                l_NumberValue_17.Value = 1;
+                                                l_TweenService_48:Create(l_NumberValue_17, TweenInfo.new(0.1, Enum.EasingStyle.Sine), {
+                                                    Value = 2.5
+                                                }):Play();
+                                                delay(0.14, function() --[[ Line: 35706 ]]
+                                                    -- upvalues: v19787 (copy)
+                                                    for _, v19791 in pairs(v19787:GetDescendants()) do
+                                                        if v19791:IsA("ParticleEmitter") and v19791.RotSpeed.Max > 10 then
+                                                            v19791.RotSpeed = NumberRange.new(5, 5);
+                                                        end;
+                                                    end;
+                                                end);
+                                                local v19792 = l_SplitSecond_0.Wind1:Clone();
+                                                table.insert(v19738, v19792);
+                                                v19792:SetPrimaryPartCFrame(l_l_hit_33_0.PrimaryPart.CFrame * CFrame.new(0, 1, 0) * CFrame.Angles(0, math.rad((math.random(-360, 360))), 0) * CFrame.Angles(3.141592653589793, 0, 0));
+                                                local v19793 = {
+                                                    Model = v19792, 
+                                                    Info = TweenInfo.new(0.25, Enum.EasingStyle.Quad), 
+                                                    T = 0.9
+                                                };
+                                                local l_v19793_0 = v19793 --[[ copy: 5 -> 14 ]];
+                                                task.spawn(function() --[[ Line: 4521 ]]
+                                                    -- upvalues: l_v19793_0 (copy)
+                                                    local l_Model_444 = l_v19793_0.Model;
+                                                    local v19796 = l_v19793_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                                                    local l_Start_463 = l_Model_444:FindFirstChild("Start");
+                                                    local l_End_459 = l_Model_444:FindFirstChild("End");
+                                                    local l_Stay_441 = l_v19793_0.Stay;
+                                                    local l_Anchor_456 = l_v19793_0.Anchor;
+                                                    local v19801 = l_v19793_0.EndT or 1;
+                                                    local l_Del_440 = l_v19793_0.Del;
+                                                    local l_Skip_440 = l_v19793_0.Skip;
+                                                    if l_Start_463 and l_End_459 then
+                                                        l_Model_444.PrimaryPart = l_Start_463;
+                                                        if not l_Skip_440 then
+                                                            for _, v19805 in pairs(l_Model_444:GetChildren()) do
+                                                                if v19805:IsA("BasePart") then
+                                                                    v19805.CanCollide = false;
+                                                                    v19805.Anchored = true;
+                                                                end;
+                                                            end;
+                                                        end;
+                                                        if l_Anchor_456 then
+                                                            l_Model_444:SetPrimaryPartCFrame(l_Anchor_456);
+                                                        end;
+                                                        if l_v19793_0.T then
+                                                            l_Start_463.Transparency = l_v19793_0.T;
+                                                        end;
+                                                        l_End_459.Transparency = 1;
+                                                        l_Model_444.Parent = workspace.Thrown;
+                                                        local l_Decal_888 = l_Start_463:FindFirstChildOfClass("Decal");
+                                                        local l_SpecialMesh_882 = l_Start_463:FindFirstChildOfClass("SpecialMesh");
+                                                        local l_SpecialMesh_883 = l_End_459:FindFirstChildOfClass("SpecialMesh");
+                                                        local l_Decal_889 = l_End_459:FindFirstChildOfClass("Decal");
+                                                        if l_Decal_889 and not l_Skip_440 then
+                                                            l_Decal_889.Transparency = 1;
+                                                        end;
+                                                        local v19810 = nil;
+                                                        if l_Del_440 then
+                                                            game:GetService("TweenService"):Create(l_Start_463, v19796, {
+                                                                Size = l_End_459.Size, 
+                                                                CFrame = l_End_459.CFrame
+                                                            }):Play();
+                                                            task.delay(l_Del_440, function() --[[ Line: 4565 ]]
+                                                                -- upvalues: v19810 (ref), l_Start_463 (copy), v19796 (copy), v19801 (copy), l_Decal_888 (copy), l_SpecialMesh_882 (copy), l_SpecialMesh_883 (copy)
+                                                                v19810 = game:GetService("TweenService"):Create(l_Start_463, v19796, {
+                                                                    Transparency = v19801
+                                                                });
+                                                                v19810:Play();
+                                                                if l_Decal_888 then
+                                                                    for _, v19812 in pairs(l_Start_463:GetChildren()) do
+                                                                        if v19812:IsA("Decal") then
+                                                                            game:GetService("TweenService"):Create(v19812, v19796, {
+                                                                                Transparency = v19801
+                                                                            }):Play();
+                                                                        end;
+                                                                    end;
+                                                                end;
+                                                                if l_SpecialMesh_882 then
+                                                                    v19810 = game:GetService("TweenService"):Create(l_SpecialMesh_882, v19796, {
+                                                                        Scale = l_SpecialMesh_883.Scale
+                                                                    }):Play();
+                                                                end;
+                                                            end);
+                                                        else
+                                                            if l_SpecialMesh_882 then
+                                                                game:GetService("TweenService"):Create(l_SpecialMesh_882, v19796, {
+                                                                    Scale = l_SpecialMesh_883.Scale
+                                                                }):Play();
+                                                            end;
+                                                            if l_Decal_888 then
+                                                                for _, v19814 in pairs(l_Start_463:GetChildren()) do
+                                                                    if v19814:IsA("Decal") then
+                                                                        game:GetService("TweenService"):Create(v19814, v19796, {
+                                                                            Transparency = v19801
+                                                                        }):Play();
+                                                                    end;
+                                                                end;
+                                                                v19810 = game:GetService("TweenService"):Create(l_Start_463, v19796, {
+                                                                    Size = l_End_459.Size, 
+                                                                    CFrame = l_End_459.CFrame
+                                                                });
+                                                                v19810:Play();
+                                                            else
+                                                                v19810 = game:GetService("TweenService"):Create(l_Start_463, v19796, {
+                                                                    Size = l_End_459.Size, 
+                                                                    Transparency = v19801, 
+                                                                    CFrame = l_End_459.CFrame
+                                                                });
+                                                                v19810:Play();
+                                                            end;
+                                                        end;
+                                                        if not l_Stay_441 then
+                                                            if l_Del_440 then
+                                                                task.wait(l_Del_440 + 0.1);
+                                                            end;
+                                                            v19810.Completed:Connect(function() --[[ Line: 4608 ]]
+                                                                -- upvalues: l_Model_444 (copy)
+                                                                l_Model_444:Destroy();
+                                                            end);
+                                                        end;
+                                                        return;
+                                                    else
+                                                        warn("NO START OR END");
+                                                        return;
+                                                    end;
+                                                end);
+                                                v19793 = l_SplitSecond_0.Wind2:Clone();
+                                                table.insert(v19738, v19793);
+                                                v19793:SetPrimaryPartCFrame(l_l_hit_33_0.PrimaryPart.CFrame * CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad((math.random(-360, 360))), 0));
+                                                local v19815 = {
+                                                    Model = v19793, 
+                                                    Info = TweenInfo.new(0.3, Enum.EasingStyle.Quad), 
+                                                    T = 0.9
+                                                };
+                                                local l_v19815_0 = v19815 --[[ copy: 6 -> 15 ]];
+                                                task.spawn(function() --[[ Line: 4521 ]]
+                                                    -- upvalues: l_v19815_0 (copy)
+                                                    local l_Model_445 = l_v19815_0.Model;
+                                                    local v19818 = l_v19815_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                                                    local l_Start_464 = l_Model_445:FindFirstChild("Start");
+                                                    local l_End_460 = l_Model_445:FindFirstChild("End");
+                                                    local l_Stay_442 = l_v19815_0.Stay;
+                                                    local l_Anchor_457 = l_v19815_0.Anchor;
+                                                    local v19823 = l_v19815_0.EndT or 1;
+                                                    local l_Del_441 = l_v19815_0.Del;
+                                                    local l_Skip_441 = l_v19815_0.Skip;
+                                                    if l_Start_464 and l_End_460 then
+                                                        l_Model_445.PrimaryPart = l_Start_464;
+                                                        if not l_Skip_441 then
+                                                            for _, v19827 in pairs(l_Model_445:GetChildren()) do
+                                                                if v19827:IsA("BasePart") then
+                                                                    v19827.CanCollide = false;
+                                                                    v19827.Anchored = true;
+                                                                end;
+                                                            end;
+                                                        end;
+                                                        if l_Anchor_457 then
+                                                            l_Model_445:SetPrimaryPartCFrame(l_Anchor_457);
+                                                        end;
+                                                        if l_v19815_0.T then
+                                                            l_Start_464.Transparency = l_v19815_0.T;
+                                                        end;
+                                                        l_End_460.Transparency = 1;
+                                                        l_Model_445.Parent = workspace.Thrown;
+                                                        local l_Decal_890 = l_Start_464:FindFirstChildOfClass("Decal");
+                                                        local l_SpecialMesh_884 = l_Start_464:FindFirstChildOfClass("SpecialMesh");
+                                                        local l_SpecialMesh_885 = l_End_460:FindFirstChildOfClass("SpecialMesh");
+                                                        local l_Decal_891 = l_End_460:FindFirstChildOfClass("Decal");
+                                                        if l_Decal_891 and not l_Skip_441 then
+                                                            l_Decal_891.Transparency = 1;
+                                                        end;
+                                                        local v19832 = nil;
+                                                        if l_Del_441 then
+                                                            game:GetService("TweenService"):Create(l_Start_464, v19818, {
+                                                                Size = l_End_460.Size, 
+                                                                CFrame = l_End_460.CFrame
+                                                            }):Play();
+                                                            task.delay(l_Del_441, function() --[[ Line: 4565 ]]
+                                                                -- upvalues: v19832 (ref), l_Start_464 (copy), v19818 (copy), v19823 (copy), l_Decal_890 (copy), l_SpecialMesh_884 (copy), l_SpecialMesh_885 (copy)
+                                                                v19832 = game:GetService("TweenService"):Create(l_Start_464, v19818, {
+                                                                    Transparency = v19823
+                                                                });
+                                                                v19832:Play();
+                                                                if l_Decal_890 then
+                                                                    for _, v19834 in pairs(l_Start_464:GetChildren()) do
+                                                                        if v19834:IsA("Decal") then
+                                                                            game:GetService("TweenService"):Create(v19834, v19818, {
+                                                                                Transparency = v19823
+                                                                            }):Play();
+                                                                        end;
+                                                                    end;
+                                                                end;
+                                                                if l_SpecialMesh_884 then
+                                                                    v19832 = game:GetService("TweenService"):Create(l_SpecialMesh_884, v19818, {
+                                                                        Scale = l_SpecialMesh_885.Scale
+                                                                    }):Play();
+                                                                end;
+                                                            end);
+                                                        else
+                                                            if l_SpecialMesh_884 then
+                                                                game:GetService("TweenService"):Create(l_SpecialMesh_884, v19818, {
+                                                                    Scale = l_SpecialMesh_885.Scale
+                                                                }):Play();
+                                                            end;
+                                                            if l_Decal_890 then
+                                                                for _, v19836 in pairs(l_Start_464:GetChildren()) do
+                                                                    if v19836:IsA("Decal") then
+                                                                        game:GetService("TweenService"):Create(v19836, v19818, {
+                                                                            Transparency = v19823
+                                                                        }):Play();
+                                                                    end;
+                                                                end;
+                                                                v19832 = game:GetService("TweenService"):Create(l_Start_464, v19818, {
+                                                                    Size = l_End_460.Size, 
+                                                                    CFrame = l_End_460.CFrame
+                                                                });
+                                                                v19832:Play();
+                                                            else
+                                                                v19832 = game:GetService("TweenService"):Create(l_Start_464, v19818, {
+                                                                    Size = l_End_460.Size, 
+                                                                    Transparency = v19823, 
+                                                                    CFrame = l_End_460.CFrame
+                                                                });
+                                                                v19832:Play();
+                                                            end;
+                                                        end;
+                                                        if not l_Stay_442 then
+                                                            if l_Del_441 then
+                                                                task.wait(l_Del_441 + 0.1);
+                                                            end;
+                                                            v19832.Completed:Connect(function() --[[ Line: 4608 ]]
+                                                                -- upvalues: l_Model_445 (copy)
+                                                                l_Model_445:Destroy();
+                                                            end);
+                                                        end;
+                                                        return;
+                                                    else
+                                                        warn("NO START OR END");
+                                                        return;
+                                                    end;
+                                                end);
+                                                v19815 = game.ReplicatedStorage.Resources.PinpointFinisher.BallGl:Clone();
+                                                table.insert(v19738, v19815);
+                                                v19815.CFrame = l_l_hit_33_0.PrimaryPart.CFrame * CFrame.new(0, 0, -1);
+                                                v19815.Parent = workspace.Thrown;
+                                                v19815.Size = Vector3.new(18, 18, 18, 0);
+                                                l_TweenService_48:Create(v19815, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+                                                    Size = Vector3.new(70, 70, 70, 0)
+                                                }):Play();
+                                                l_TweenService_48:Create(v19815, TweenInfo.new(0.1, Enum.EasingStyle.Sine), {
+                                                    Transparency = 1
+                                                }):Play();
+                                                delay(0.1, function() --[[ Line: 35735 ]]
+                                                    -- upvalues: v19815 (copy)
+                                                    local l_Highlight_13 = v19815.Highlight;
+                                                    if l_Highlight_13 then
+                                                        l_Highlight_13:Destroy();
+                                                    end;
+                                                    v19815.Material = Enum.Material.Neon;
+                                                end);
+                                                shared.sfx({
+                                                    SoundId = "rbxassetid://15489227137", 
+                                                    CFrame = l_l_hit_33_0.Torso.CFrame, 
+                                                    Volume = 10
+                                                }):Play();
+                                                if l_v19736_0 then
+                                                    shared.sfx({
+                                                        SoundId = "rbxassetid://15522989080", 
+                                                        CFrame = l_l_hit_33_0.Torso.CFrame, 
+                                                        Volume = 10
+                                                    }):Play();
+                                                end;
+                                                local l_v12_5 = v12;
+                                                local v19839 = {
+                                                    Effect = "BreakJoints", 
+                                                    Name = l_l_hit_33_0.Name, 
+                                                    Hit = l_l_hit_33_0, 
+                                                    KeepLegs = true, 
+                                                    Break = l_l_hit_33_0.PrimaryPart.Position + Vector3.new(0, 15, 0, 0), 
+                                                    Speed = 3
+                                                };
+                                                local v19840 = 35;
+                                                local v19841 = 50;
+                                                local l_v103_230 = v103;
+                                                if not v19841 and v19840 then
+                                                    v19841 = v19840;
+                                                    v19840 = 1;
+                                                end;
+                                                if not v19841 and not v19840 then
+                                                    v19840 = 0;
+                                                    v19841 = 1;
+                                                end;
+                                                v19839.Add = l_v103_230:NextNumber(v19840, v19841) * 1.5;
+                                                l_v12_5(v19839);
+                                                l_ColorCorrectionEffect_2.Contrast = 0;
+                                            end);
+                                        end;
+                                    end;
+                                end);
+                                table.insert(v19738, v19778);
+                                task.delay(0.5, function() --[[ Line: 35773 ]]
+                                    -- upvalues: l_NumberValue_16 (copy), l_NumberValue_15 (ref), l_ColorCorrectionEffect_2 (ref), l_Part_10 (ref), l_Model_443 (ref)
+                                    task.delay(1, function() --[[ Line: 35774 ]]
+                                        -- upvalues: l_NumberValue_16 (ref), l_NumberValue_15 (ref), l_ColorCorrectionEffect_2 (ref), l_Part_10 (ref), l_Model_443 (ref)
+                                        l_NumberValue_16:Destroy();
+                                        l_NumberValue_15:Destroy();
+                                        l_ColorCorrectionEffect_2:Destroy();
+                                        l_Part_10:Destroy();
+                                        l_Model_443:Destroy();
+                                    end);
+                                end);
+                            end);
+                            local v19843 = nil;
+                            v19843 = game:GetService("RunService").RenderStepped:Connect(function() --[[ Line: 35785 ]]
+                                -- upvalues: l_Part_10 (copy), l_l_hit_33_0 (ref), v19843 (ref), l_NumberValue_15 (copy), l_ColorCorrectionEffect_2 (copy), l_ImageLabel_5 (copy), l_CFrame_47 (copy), v19749 (ref), v19748 (ref), v19750 (ref)
+                                if not l_Part_10.Parent or not l_l_hit_33_0.Parent or not l_l_hit_33_0.PrimaryPart or not l_l_hit_33_0.PrimaryPart.Parent then
+                                    v19843:Disconnect();
+                                    l_NumberValue_15:Destroy();
+                                    l_ColorCorrectionEffect_2:Destroy();
+                                    l_Part_10:Destroy();
+                                    return;
+                                else
+                                    l_ImageLabel_5.ImageColor3 = l_Part_10.Color;
+                                    local l_Position_45 = l_l_hit_33_0.PrimaryPart.Position;
+                                    local v19845 = l_l_hit_33_0.PrimaryPart.CFrame:ToObjectSpace(l_CFrame_47);
+                                    l_Position_45 = (l_l_hit_33_0.PrimaryPart.CFrame * CFrame.new(v19845.X * l_NumberValue_15.Value, v19845.Y * l_NumberValue_15.Value, v19845.Z * l_NumberValue_15.Value)).Position;
+                                    local l_magnitude_3 = (l_Position_45 - workspace.Camera.CFrame.Position).magnitude;
+                                    local v19847 = CFrame.new(l_Position_45, workspace.Camera.CFrame.Position) * CFrame.new(0, 0, -l_magnitude_3 + 0.2) * CFrame.Angles(0, 1.5707963267948966, 0);
+                                    v19847 = CFrame.new(v19847.Position, workspace.Camera.CFrame.Position) * CFrame.Angles(0, 1.5707963267948966, 0);
+                                    if v19749 then
+                                        v19749.FillColor = v19748.FillColor;
+                                    end;
+                                    if v19750 and v19748 then
+                                        v19750.FillColor = v19748.FillColor;
+                                    end;
+                                    l_Part_10.CFrame = v19847;
+                                    return;
+                                end;
+                            end);
+                            table.insert(v19738, v19843);
+                            while task.wait(0.03) and l_Part_10.Parent and l_l_hit_33_0 ~= l_LocalPlayer_0.Character and l_l_char_58_1 ~= l_LocalPlayer_0.Character do
+                                if v19743 then
+                                    local l_Position_46 = workspace.CurrentCamera.CFrame.Position;
+                                    if l_LocalPlayer_0.Character and l_LocalPlayer_0.Character.PrimaryPart then
+                                        l_Position_46 = l_LocalPlayer_0.Character.PrimaryPart.Position;
+                                    end;
+                                    if (l_l_hit_33_0.PrimaryPart.Position - l_Position_46).magnitude <= 40 then
+                                        l_Part_10.Size = l_Part_10.Size:lerp(Vector3.new(0.10000000149011612, 0.5, 0.5, 0), 0.1);
+                                    else
+                                        l_Part_10.Size = l_Part_10.Size:lerp(Vector3.new(0.10000000149011612, 0, 0, 0), 0.1);
+                                    end;
+                                end;
+                            end;
+                            return;
+                        end;
+                    end);
+                    wait(1.4);
+                    for _, v19850 in pairs(v19727:GetDescendants()) do
+                        if v19850:IsA("ParticleEmitter") then
+                            v19850.Enabled = false;
+                        end;
+                    end;
+                    for _, v19852 in pairs(v19731:GetDescendants()) do
+                        if v19852:IsA("ParticleEmitter") then
+                            v19852.Enabled = false;
+                        end;
+                    end;
+                    v1025(v19727);
+                    task.wait(0.9);
+                    v1025(v19729);
+                end);
+                local l_l_SplitCounter_0_1 = l_SplitCounter_0 --[[ copy: 7 -> 993 ]];
+                task.delay(0.6, function() --[[ Line: 35854 ]]
+                    -- upvalues: l_l_SplitCounter_0_1 (copy), l_l_FirstChild_32_0 (copy), v1025 (ref), v966 (ref)
+                    local v19854 = CFrame.new(0.299, -2.305, -0);
+                    local v19855 = CFrame.new(-0.201, 2.162, -0);
+                    local v19856 = l_l_SplitCounter_0_1.CounterGlint.A0:Clone();
+                    game:GetService("Debris"):AddItem(v19856, 5);
+                    v19856.Parent = l_l_FirstChild_32_0;
+                    v19856.CFrame = v19855;
+                    v1025(v19856);
+                    delay(0.3, function() --[[ Line: 35863 ]]
+                        -- upvalues: v1025 (ref), v19856 (copy)
+                        v1025(v19856);
+                    end);
+                    task.wait(0.1);
+                    local v19857 = l_l_SplitCounter_0_1.CounterGlint.A1New:Clone();
+                    game:GetService("Debris"):AddItem(v19857, 5);
+                    v19857.Parent = l_l_FirstChild_32_0;
+                    v19857.CFrame = v19854;
+                    v1025(v19857);
+                    v966(v19857, {
+                        Time = 0.2, 
+                        EasingStyle = "EntranceExpressive", 
+                        Goal = {
+                            CFrame = v19857.CFrame * CFrame.Angles(3.141592653589793, 0, 0)
+                        }
+                    });
+                    delay(0.5, function() --[[ Line: 35875 ]]
+                        -- upvalues: v19857 (copy), v1025 (ref)
+                        v19857.CFrame = CFrame.new(-0.201, 2.162, -0);
+                        v1025(v19857);
+                    end);
+                end);
+end;
